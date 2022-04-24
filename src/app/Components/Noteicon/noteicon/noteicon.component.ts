@@ -40,8 +40,9 @@ export class NoteiconComponent implements OnInit {
     }
     this.notesService.archive(reqdata, this.iconnote.notesId).subscribe((response: any) => {
       console.log(response);
-      console.log(this.notesId);
-      this.archiveNoteToRefresh.emit(Response)
+      console.log(this.iconnote.notesId);
+      window.location.reload();
+      this.archiveNoteToRefresh.emit(response)
 
     })
 
@@ -54,7 +55,8 @@ export class NoteiconComponent implements OnInit {
     this.notesService.trash(reqdata, this.iconnote.notesId).subscribe((response: any) => {
       console.log(response);
       console.log(this.notesId);
-      this.trashNoteToRefresh.emit(Response)
+      window.location.reload();
+      this.trashNoteToRefresh.emit(response)
     })
     
   }
@@ -66,6 +68,7 @@ export class NoteiconComponent implements OnInit {
       this.notesService.permaDelete(reqdata, this.iconnote.notesId).subscribe((response: any) => {
         console.log(response);
         console.log(this.notesId);
+        window.location.reload();
       })
       this.permadel.emit(Response);
   }
@@ -94,7 +97,7 @@ export class NoteiconComponent implements OnInit {
       
     }
 
-    this.notesService.color(reqdata,this.iconnote.notesId,this.colors).subscribe((response:any) =>{
+    this.notesService.color(reqdata,this.iconnote.notesId,noteColor).subscribe((response:any) =>{
       console.log(response);
       
 

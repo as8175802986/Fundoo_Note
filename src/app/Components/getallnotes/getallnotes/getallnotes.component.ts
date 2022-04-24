@@ -9,7 +9,7 @@ import { NotesService } from 'src/app/services/notes.service/notes.service';
 export class GetallnotesComponent implements OnInit {
   notesarray:any
   notesId:any;
-  
+  // @Input()
   constructor(private notesService:NotesService) { }
 
   ngOnInit(): void {
@@ -32,11 +32,11 @@ export class GetallnotesComponent implements OnInit {
     },(error)=>{console.log(error)});
     
   }
-  autoRefresh(data:any)
-  {
-     console.log("refreshed",data);
-     this.GetAllNotes();
-  }
+  // autoRefresh(data:any)
+  // {
+  //    console.log("refreshed",data);
+  //    this.GetAllNotes();
+  // }
   update(e:any){
     console.log(e);
     this.GetAllNotes();

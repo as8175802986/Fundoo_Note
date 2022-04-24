@@ -53,7 +53,6 @@ export class NotesService {
     console.log("trash note called")
     return this.httpService.putService(`Note/archiveNote/${notesId}`,data,true,header)
   }
-
   trash(data: any,notesId:any){
     let header={
       headers: new HttpHeaders({
@@ -74,7 +73,6 @@ export class NotesService {
     console.log("trash note called")
     return this.httpService.putService(`Note/pinnotes/${notesId}`,data,true,header)
   }
-
   permaDelete(data: any,notesId:any){
     let header={
       headers: new HttpHeaders({
@@ -85,8 +83,7 @@ export class NotesService {
     console.log("trash note called")
     return this.httpService.deleteService(`Note/deletenotes/${notesId}`,data,true,header)
   }
-  
-  color(data: any,notesId:any,colors:any){
+  color(data: any,notesId:any,noteColor:any){
     let header={
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -94,8 +91,8 @@ export class NotesService {
       })
     }
     console.log("Color change called")
-    // console.log(Colors)
-    return this.httpService.putService(`Note/changeColor/${notesId}/${colors}`,data,true,header)
+    let url=`Note/changeColor/${notesId}/`+noteColor
+    return this.httpService.putService(url,data,true,header)
   }
   
 }

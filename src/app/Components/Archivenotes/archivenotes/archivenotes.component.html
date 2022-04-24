@@ -1,1 +1,4 @@
-<app-displaynotes [allnotes] ='notesarchive'  ></app-displaynotes>
+<div fxLayout="column" style="min-width:90vw;min-height:90vh;">
+<app-displaynotes (trashNoteToRefresh)="trash($event)" (changeColorOfNote)="colourchanged($event)"
+(updateNoteToRefresh)="update($event)" (archiverefresh)="archive($event)" [allnotes] ='notesarchive'  ></app-displaynotes>
+</div>

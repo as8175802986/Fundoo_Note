@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DataService } from 'src/app/services/data/data.service';
 import { NotesService } from 'src/app/services/notes.service/notes.service';
@@ -12,6 +12,10 @@ import { UpdatenotesComponent } from '../../Updatenotes/updatenotes/updatenotes.
 export class ArchivenotesComponent implements OnInit {
   notesarchive: any
   notesId:any
+  @Output() changeColorOfNote = new EventEmitter<any>();
+  @Output() updateNoteToRefresh = new EventEmitter<any>();
+  @Output() trashNoteToRefresh = new EventEmitter<any>();
+  @Output() archiveNoteToRefresh = new EventEmitter<any>();
   
   constructor(public dialog: MatDialog,private dataservice:DataService,private notesService: NotesService) { }
 
@@ -36,5 +40,25 @@ export class ArchivenotesComponent implements OnInit {
       })
       this.notesarchive = datalist;
     })
+  }
+  archive(data: any) {
+    
+    this.archiveNoteToRefresh.emit("archive")
+  }
+  colourchanged(e:any){
+    console.log(e);
+    this.getarchived();
+  }
+  update(e:any){
+    console.log(e);
+    this.getarchived();
+  }
+  message(e: any) {
+    console.log(e);
+    this.changeColorOfNote.emit("colour")
+  }
+  trash(data: any) {
+    console.log(data);
+    this.trashNoteToRefresh.emit("trash")
   }
 }

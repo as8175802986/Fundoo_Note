@@ -1,25 +1,20 @@
-<div class="content" >
+<div class="content">
     <div style="margin-top: 100px; margin-left: 40px;">
-    <div fxLayout="row wrap" >
-       
-        <div *ngFor="let note of allnotes|searchPipe:searchWord" fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="row" fxlayoutAlign="space-between" fxFlex.xs="100"  >
-            
-            <mat-card  [style.background]="note.color" class="card" style="width:250px; height:100px; margin-bottom: 40px;" fxLayout.XS="column" fxFlex.xs="95">
-                <div  (click)="openDialog(note)">
-       
-                
-                  <strong >{{note.title}}</strong>
-                
-                  <div >{{note.description}}</div>
-                
+        <div fxLayout="row wrap">
+            <div *ngFor="let note of allnotes|searchPipe:searchWord" fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="row"
+                fxlayoutAlign="space-between" fxFlex.xs="100">
+                <mat-card [style.background]="note.color" class="card"
+                    style="width:250px; height:100px; margin-bottom: 40px;" fxLayout.XS="column" fxFlex.xs="95">
+                    <div (click)="openDialog(note)">
+                        <strong>{{note.title}}</strong>
+                        <div>{{note.description}}</div>
+                    </div>
+                    <div>
+                        <app-noteicon (archiveNoteToRefresh)="archive($event)" (changeColorOfNote)="message($event)"
+                            (trashNoteToRefresh)="trash($event)" [iconnote]='note'></app-noteicon>
+                    </div>
+                </mat-card>
             </div>
-                <div >
-                    <app-noteicon (archiveNoteToRefresh)="archive($event)" (changeColorOfNote)="message($event)" (trashNoteToRefresh)="trash($event)"[iconnote]='note' ></app-noteicon>
-                </div>
-
-            </mat-card>
-        
         </div>
     </div>
-</div>
 </div>
