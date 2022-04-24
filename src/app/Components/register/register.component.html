@@ -1,0 +1,108 @@
+<div fxflex="100" fxLayout="row" fxLayoutAlign="center center" fxFlexFill>
+  <mat-card>
+    <div class="container" fxLayout="row" fxLayoutAlign="center center" fxFlexFill>
+      <div class="left" >
+        <div  fxLayout="column" fxLayoutAlign="start start">
+          <h1 class="header">
+            <span style='color: blue;'>F</span>
+            <span style='color:red;'>u</span>
+            <span style='color:yellow'>n</span>
+            <span style='color:blue;'>d</span>
+            <span style='color:green;'>o</span>
+            <span style='color:red;'>o</span>
+          </h1>
+          <p class="SubHeader">Create your Fundoo Account</p>
+        </div>
+
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+          <div class="fullname" fxLayout="row" fxLayoutAlign="start center" >
+            <mat-form-field class="full-width-fname" appearance="outline">
+              <mat-label>First name</mat-label>
+              <input matInput type="text" formControlName="firstName" placeholder="">
+              <mat-error>Enter first and last names</mat-error>
+            </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="end center" >
+            <mat-form-field class="full-width-lname" appearance="outline">
+              <mat-label>Last name</mat-label>
+              <input matInput type="text" formControlName="lastName" placeholder="">
+            </mat-form-field>
+          </div>
+        </div>
+          <div fxLayout="row" fxLayoutAlign="cen center" fxLayoutGap="10px" >
+          <div class="fullname" fxLayout="row" fxLayoutAlign="start center" >
+            <mat-form-field class="full-width-fname" appearance="outline">
+              <mat-label>Phone</mat-label>
+              <input matInput type="text" formControlName="Phone" placeholder="">
+              <mat-error>Enter Phone number</mat-error>
+            </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="end center" >
+            <mat-form-field class="full-width-lname" appearance="outline">
+              <mat-label>Address</mat-label>
+              <input matInput type="text" formControlName="Address" placeholder="">
+            </mat-form-field>
+          </div>
+        </div>
+          
+
+          <div fxLayout="column" fxLayoutAlign="center stretch" >
+            <mat-form-field class="full-width-email" appearance="outline">
+              <mat-label>Username</mat-label>
+              <input matInput formControlName="email" placeholder="">
+              <mat-hint align="start">You can use letters, numbers & periods </mat-hint>
+              <mat-error>Choose a Gmail address </mat-error>
+            </mat-form-field>
+          </div>
+          <div fxLayout="column" fxLayoutAlign="start start">
+          <a class="txt" href="">Use my current email address</a>
+        </div>
+          
+          <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+          <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+            <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input formControlName="Password" matInput placeholder="">
+              <mat-error>Enter a password</mat-error>
+            </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="end center" >
+            <mat-form-field class="full-width-name" appearance="outline">
+              <mat-label>ConfirmPassword</mat-label>
+              <input matInput formControlName="ConfirmPassword" placeholder="ConfirmPassword">
+            </mat-form-field>
+            
+          </div>
+          
+        </div>
+        <input type="checkbox" Password="" class="checkbox" size="10px">
+          &nbsp;Show Password
+
+          
+          <div>
+            <span>Use 8 or more characters with a mix of letters, numbers & symbols</span>
+          </div>
+
+          <div class="b-links" fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="50%">
+            <div fxLayout="column" fxLayoutAlign="start center">
+
+              <a class="link" routerLink='/login' mat-button href="">Sign in instead</a>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="end end">
+              <button class="next" mat-raised-button color="blue" (click)="onSubmit()">Next</button>
+            </div>
+          </div>
+
+
+        </form>
+
+      </div>
+      <div class="image" fxHide.xs="true">
+        <img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg">
+        <p>One account. All of Fundoo Notes working for you.</p>
+      </div>
+
+    </div>
+  </mat-card>
+  </div>

@@ -1,0 +1,64 @@
+<div fxflex="100" fxLayout="row" fxLayoutAlign="center center" fxFlexFill>
+  <mat-card class="Card">
+   
+      <div>
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <h1 class="header">
+            <span style='color:#1a73e8;'>F</span>
+            <span style='color:rgba(255, 0, 0, 0.829);'>u</span>
+            <span style='color:yellow'>n</span>
+            <span style='color:#1a73e8;'>d</span>
+            <span style='color:green;'>o</span>
+            <span style='color:rgba(255, 0, 0, 0.822);'>o</span>
+          </h1>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <h1 class="SubHeader">Sign In</h1>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <h2 class="SubHeader">Use Your Google Account</h2>
+        </div>
+
+
+        <form [formGroup]="loginForm" >
+          <div fxLayout="column" fxLayoutAlign="space-between stretch" >
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Email or phone</mat-label>
+              <input matInput formControlName="email" placeholder="Email or phone">
+              <mat-error>Invalid Email</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="box1" fxLayout="column" fxLayoutAlign="space-between stretch" >
+            <mat-form-field class="full-width1" appearance="outline">
+              <mat-label>password</mat-label>
+              <input matInput formControlName="password" placeholder="" type="password">
+              <mat-error>Invalid Password</mat-error>
+            </mat-form-field>
+          </div>
+
+
+          <div class="Forgot" fxLayout="row" fxLayoutAlign="left"><a class="link" routerLink='/forget-password'
+              href="">Forgot email?</a></div>
+
+          <br>
+          <br>
+          <br>
+
+          <a class="txt" fxLayout="row" fxLayoutAlign="left">Not your computer? Use a private browsing
+            window to sign in </a>
+
+          <div class="learn">
+            <a class="link" fxLayout="row"  fxLayoutAlign="left">Learn more</a>
+            <br>
+            <br>
+          </div>
+
+          <div fxLayout="row" fxLayoutAlign="end end">
+            <button  fxLayout="row" fxLayoutAlign="end end"  (click)="onSubmit()">Log in</button>
+          </div>
+
+        </form>
+      </div>
+    </mat-card>
+    </div>
+  

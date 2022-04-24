@@ -1,0 +1,26 @@
+<mat-card>
+
+
+    <div fxLayout="row" fxLayoutAlign="start center">
+        <div>
+            <input type="notes" [(ngModel)]="title" class="textin1" placeholder="Title...">
+        </div>
+        <div>
+            <button type="button" class="icons" (click)="pinnotes()" mat-button style="opacity: 60%">
+                <img class="img" src="http://127.0.0.1:5500/src/assets/images/push_pin_black_24dp.svg" width="25px"
+                    height="25px" />
+            </button>
+        </div>
+    </div>
+    <div>
+        <textarea matInput class="text1" [(ngModel)]="description" placeholder="Take a note..." cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="40"></textarea>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start center" style="margin: bottom 10px;">
+        <div>
+            <app-noteicon></app-noteicon>
+            <a class="link" mat-button (click)="close()">Close</a>
+        </div>
+
+    </div>
+</mat-card>

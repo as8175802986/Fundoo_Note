@@ -1,0 +1,32 @@
+.textin{
+    height:43px;
+    width: 500px;
+    border:none; 
+    font-size:medium;  
+}
+.textin:focus{
+    outline: none;
+}
+.textin1{
+    height:43px;
+    width: 430px;
+    border:none; 
+    font-size:medium;  
+}
+.textin1:focus{
+    outline: none;
+}
+.text1{
+    height:43px;
+    width: 500px;
+    border:none;
+    font-size:large;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.text1:focus{
+    outline: none;
+}
+.link{
+    width:"10px";
+    height:"10px"
+}

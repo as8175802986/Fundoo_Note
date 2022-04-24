@@ -1,0 +1,50 @@
+<div class="icons">
+    <div *ngIf="!isTrashnotesComponent"  fxLayout="row" fxLayoutAlign="space-between end" style="margin-top:40px" fxLayoutGap="20px">
+        <div>
+            
+            <img  src="http://127.0.0.1:5500/src/assets/images/reminder.svg" width="24px" height="24px" />
+           
+        </div>
+        <div>
+            
+            <img src="http://127.0.0.1:5500/src/assets/images/collab.svg"  width="24px" height="24px" />
+            
+        </div>
+        <div>
+            <img [matMenuTriggerFor]="colormenu" src="http://127.0.0.1:5500/src/assets/images/Color-palette_(CoreUI_Icons_v1.0.0).svg" width="24px" height="24px" />
+            <mat-menu #colormenu="matMenu">
+                <mat-card class="colorButton">
+                    <div class="pallete" fxLayoutGap="2px" >
+                        <button class="colors" *ngFor="let noteColor of colors" mat-mini-fab [style.background]="noteColor?.code"
+                        (click)="changeColor(noteColor?.code)"></button>
+                    </div>
+                </mat-card>
+            </mat-menu>
+        </div>
+        <div>
+            
+            <img src="http://127.0.0.1:5500/src/assets/images/insertimg.svg" width="24px" height="24px" />
+            
+        </div>
+        <div class="archiveicons">
+            <div *ngIf="!isArchiveNotesComponent">
+                <img src="http://127.0.0.1:5500/src/assets/images/archive_black_24dp.svg" (click)="archivenote()" width="24px" height="24px" />
+            </div>
+            <div *ngIf="isArchiveNotesComponent">
+                <img src="http://127.0.0.1:5500/src/assets/images/unarchive.svg" (click)="archivenote()"  width="24px" height="24px" />
+            </div>
+        </div>
+        <div>
+            <!-- <button > -->
+            <img [matMenuTriggerFor]="moremenu" src="http://127.0.0.1:5500/src/assets/images/more.svg" width="24px" height="24px" />
+            <!-- </button> -->
+            <mat-menu #moremenu="matMenu">
+                <span mat-menu-item (click)="Delete()">Delete Note</span>
+            </mat-menu>
+        </div>
+    </div>
+    <div *ngIf="isTrashnotesComponent" fxLayout="row" fxLayoutAlign="start end" style="margin-top:40px" fxLayoutGap="3px" class="deleteicons">
+        <img src="http://127.0.0.1:5500/src/assets/images/restore.svg" (click)="Delete()" width="24px" height="24px" />
+        <img src="http://127.0.0.1:5500/src/assets/images/permadelete.svg" (click)="Permadelete()"  width="24px" height="24px" />
+    </div>
+</div>
