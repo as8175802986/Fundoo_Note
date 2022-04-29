@@ -1,12 +1,12 @@
-    <div fxLayout="row" fxLayoutAlign="center none">
+    <div fxLayout="row" fxLayoutAlign="center">
         <div  *ngIf="!isShow" (click)="takeanote()"> 
-            <mat-card fxLayout="row" fxLayoutAlign=" stretch " style="margin-top: 50px; border-radius: 8px; width: 500px;">
-                <div style="height: 50px;" fxLayoutGap="20px"
-                fxLayoutAlign="space-between center" fxFlex=100 style="width: 500px;">    
+            <mat-card fxLayout="row" class="container" fxLayoutAlign=" stretch " >
+                <div class="note"  fxLayoutGap="20px"
+                fxLayoutAlign="space-between center" fxFlex=100 >    
                     <input type="notes" class="textin" placeholder="Take a note...">   
-                    <img  src="http://127.0.0.1:5500/src/assets/images/checkbox.svg" alt=""  height="25px" >
-                    <img  src="http://127.0.0.1:5500/src/assets/images/brush.svg" alt="" width="25px" height="25px">
-                    <img  src="http://127.0.0.1:5500/src/assets/images/insertimg.svg" alt="" width="25px" height="25px">       
+                    <img class="img"  src="http://127.0.0.1:5500/src/assets/images/checkbox.svg" alt=""   >
+                    <img class="img" src="http://127.0.0.1:5500/src/assets/images/brush.svg" alt="">
+                    <img class="img" src="http://127.0.0.1:5500/src/assets/images/insertimg.svg" alt="">       
                 </div>         
             </mat-card>
         </div>
@@ -20,7 +20,7 @@
         </div>
         <div>
             <button type="button" class="icons" mat-button style="opacity: 60%;">
-                <img class="img" src="http://127.0.0.1:5500/src/assets/images/push_pin_black_24dp.svg" width="25px" height="25px" />
+                <img class="img" src="http://127.0.0.1:5500/src/assets/images/push_pin_black_24dp.svg" />
             </button>  
         </div>
         </div>
@@ -28,11 +28,9 @@
             <textarea matInput [(ngModel)]="description" class="text1" placeholder="Take a note..." cdkTextareaAutosize
             #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="40"></textarea>   
         </div>        
-            <div fxLayout="row" fxLayoutAlign="space-between start">
-                <div>
+            <div  >
+                <div fxLayoutAlign="row end" fxLayoutALign="space-between end">
                     <app-noteicon></app-noteicon>
-                </div>
-                <div>
                     <a class="link" mat-button  (click)="isShow=!isShow" (click)="close()">Close</a>
                 </div>
             </div>

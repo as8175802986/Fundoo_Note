@@ -11,13 +11,13 @@ import { TrashnotesComponent } from '../../trashnote/trashnotes/trashnotes.compo
 })
 export class NoteiconComponent implements OnInit {
   @Input() iconnote: any;
-  notesId: any;  
-  @Output() trashNoteToRefresh= new EventEmitter<any>();
-  @Output() archiveNoteToRefresh= new EventEmitter<any>();
+  notesId: any;
+  @Output() trashNoteToRefresh = new EventEmitter<any>();
+  @Output() archiveNoteToRefresh = new EventEmitter<any>();
   @Output() changeColorOfNote = new EventEmitter<any>();
   @Output() permadel = new EventEmitter<any>()
   isArchiveNotesComponent = false;
-  isTrashnotesComponent= false;
+  isTrashnotesComponent = false;
   constructor(private notesService: NotesService, private router: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -31,7 +31,7 @@ export class NoteiconComponent implements OnInit {
       this.isTrashnotesComponent = true;
       console.log(this.isTrashnotesComponent);
     }
-    
+
   }
   archivenote() {
     let reqdata = {
@@ -58,19 +58,18 @@ export class NoteiconComponent implements OnInit {
       window.location.reload();
       this.trashNoteToRefresh.emit(response)
     })
-    
   }
   Permadelete() {
-      let reqdata = {
-        noteIdList: [this.iconnote.notesId],
-        isDeleted: true,
-      }
-      this.notesService.permaDelete(reqdata, this.iconnote.notesId).subscribe((response: any) => {
-        console.log(response);
-        console.log(this.notesId);
-        window.location.reload();
-      })
-      this.permadel.emit(Response);
+    let reqdata = {
+      noteIdList: [this.iconnote.notesId],
+      isDeleted: true,
+    }
+    this.notesService.permaDelete(reqdata, this.iconnote.notesId).subscribe((response: any) => {
+      console.log(response);
+      console.log(this.notesId);
+      window.location.reload();
+    })
+    this.permadel.emit(Response);
   }
   colors = [
     { code: '#ffffff', name: 'white' },
@@ -86,29 +85,18 @@ export class NoteiconComponent implements OnInit {
     { code: '#e6c9a8', name: 'brown' },
     { code: '#e8eaed', name: 'grey' },
   ];
-
-  changeColor(noteColor:any){
-    
-    this.iconnote.colors= noteColor;
-    let reqdata={
-      
-      noteIdList: [this.iconnote.notesId],  
-      colors: noteColor
-      
+  changeColor(noteColor: any) {
+    console.log(noteColor)
+    this.iconnote.colors = noteColor;
+    let reqdata = {
+      noteIdList: [this.iconnote.notesId],
+      color: noteColor
     }
-
-    this.notesService.color(reqdata,this.iconnote.notesId,noteColor).subscribe((response:any) =>{
+    this.notesService.changeColor(this.iconnote.notesId, noteColor).subscribe((response: any) => {
       console.log(response);
-      
-
       this.changeColorOfNote.emit(noteColor)
-      
-
     })
-   
   }
-  
-
 }
 
 

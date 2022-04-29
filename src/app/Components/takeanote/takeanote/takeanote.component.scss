@@ -4,6 +4,18 @@
     border:none; 
     font-size:medium;  
 }
+.img{
+    width:25px;
+    height:25px
+}
+.note{
+    width: 500px;
+    height: 30px;
+}
+.container{
+    margin-top: 50px;
+    border-radius: 8px;
+}
 .textin:focus{
     outline: none;
 }

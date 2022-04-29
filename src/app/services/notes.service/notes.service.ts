@@ -6,93 +6,92 @@ import { HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class NotesService {
-  notesId:any
-  token:any
-  colors:any
-  
-  constructor(private httpService:HttpService) {
-    this.token= localStorage.getItem("token")
-   }
-   takenotes(data:any){
-    let header = {
-      headers: new HttpHeaders({
-       'Content-Type': 'application/json',
-       'Authorization': "Bearer "+this.token
-      })
-   }
-    console.log("take Notes called");
-    return this.httpService.postService('Note/addnotes',data,true,header)
+  notesId: any
+  token: any
+  colors: any
+
+  constructor(private httpService: HttpService) {
+    this.token = localStorage.getItem("token")
   }
-  updatenotes(data:any,notesId:any){
+  takenotes(data: any) {
     let header = {
-      headers: new HttpHeaders({
-       'Content-Type': 'application/json',
-       'Authorization': "Bearer "+this.token
-      })
-   }
-   console.log("update Notes called");
-  return this.httpService.putService(`Note/updatenotes/${notesId}`,data,true,header)
-  }
-  getnotes() {
-    let header={
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization':"Bearer "+this.token
+        'Authorization': "Bearer " + this.token
+      })
+    }
+    console.log("take Notes called");
+    return this.httpService.postService('Note/addnotes', data, true, header)
+  }
+  updatenotes(data: any, notesId: any) {
+    let header = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': "Bearer " + this.token
+      })
+    }
+    console.log("update Notes called");
+    return this.httpService.putService(`Note/updatenotes/${notesId}`, data, true, header)
+  }
+  getnotes() {
+    let header = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': "Bearer " + this.token
       })
     }
     console.log("Get all Notes called")
-    return this.httpService.getService('Note/getallnotes',header)
+    return this.httpService.getService('Note/getallnotes', header)
   }
-  archive(data: any,notesId:any){
-    let header={
+  archive(data: any, notesId: any) {
+    let header = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization':"Bearer "+this.token
+        'Authorization': "Bearer " + this.token
       })
     }
     console.log("trash note called")
-    return this.httpService.putService(`Note/archiveNote/${notesId}`,data,true,header)
+    return this.httpService.putService(`Note/archiveNote/${notesId}`, data, true, header)
   }
-  trash(data: any,notesId:any){
-    let header={
+  trash(data: any, notesId: any) {
+    let header = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization':"Bearer "+this.token
+        'Authorization': "Bearer " + this.token
       })
     }
     console.log("trash note called")
-    return this.httpService.putService(`Note/trash/${notesId}`,data,true,header)
+    return this.httpService.putService(`Note/trash/${notesId}`, data, true, header)
   }
-  pin(data: any,notesId:any){
-    let header={
+  pin(data: any, notesId: any) {
+    let header = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization':"Bearer "+this.token
+        'Authorization': "Bearer " + this.token
       })
     }
     console.log("trash note called")
-    return this.httpService.putService(`Note/pinnotes/${notesId}`,data,true,header)
+    return this.httpService.putService(`Note/pinnotes/${notesId}`, data, true, header)
   }
-  permaDelete(data: any,notesId:any){
-    let header={
+  permaDelete(data: any, notesId: any) {
+    let header = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization':"Bearer "+this.token
+        'Authorization': "Bearer " + this.token
       })
     }
     console.log("trash note called")
-    return this.httpService.deleteService(`Note/deletenotes/${notesId}`,data,true,header)
+    return this.httpService.deleteService(`Note/deletenotes/${notesId}`, data, true, header)
   }
-  color(data: any,notesId:any,noteColor:any){
-    let header={
+  changeColor(notesId: any, noteColor: any) {
+    let header = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization':"Bearer "+this.token
+        'Authorization': "Bearer " + this.token
       })
     }
-    console.log("Color change called")
-    let url=`Note/changeColor/${notesId}/`+noteColor
-    return this.httpService.putService(url,data,true,header)
+    console.log("Color change called",notesId,noteColor)
+    let url = 'Note/changeColor/' + notesId + '/' + noteColor
+    return this.httpService.changeColor(url, {}, true, header)
   }
-  
 }

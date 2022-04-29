@@ -41,20 +41,7 @@ export class DisplaynotesComponent implements OnInit {
       this.updateNoteToRefresh.emit('update')
     })
   }
-  // predefinedcolors: Array<any> = [
-  //   { code: '#ffffff', name: 'white' },
-  //   { code: '#f28b82', name: 'red' },
-  //   { code: '#fbbc04', name: 'orange' },
-  //   { code: '#FFFF00', name: 'yellow' },
-  //   { code: '#ccff90', name: 'green' },
-  //   { code: '#a7ffeb', name: 'teal' },
-  //   { code: '#cbf0f8', name: 'Blue' },
-  //   { code: '#aecbfa', name: 'darkblue' },
-  //   { code: '#d7aefb', name: 'purple' },
-  //   { code: '#fdcfe8', name: 'pink' },
-  //   { code: '#e6c9a8', name: 'brown' },
-  //   { code: '#e8eaed', name: 'grey' },
-  // ]
+ 
   message(e: any) {
     console.log(e);
     this.changeColorOfNote.emit("colour")
